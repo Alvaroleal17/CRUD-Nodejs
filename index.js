@@ -6,7 +6,7 @@ var mongoose = require("mongoose");
 //Configurar el bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 //Cargar archivos estaticos
-app.use(express.static(__dirname + "/Public"));
+app.use(express.static(__dirname + "/public"));
 //Mongoose
 mongoose
   .connect(
