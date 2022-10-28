@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Ingresos y Gastos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <main class="formulario form-signin w-100 m-auto">
+      <!--Form-Create datos-->
+      <form id="miFormulario">
+        <h1 class="h4 mb-3 fw-normal">Registrar Ingresos y Gastos</h1>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ingrese su nombre"
+            name="nombre"
+          />
+          <label for="floatingInput">Nombre</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ingrese la fecha"
+            name="fecha"
+          />
+          <label for="floatingInput">Fecha</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Igrese la cifra en pesos"
+            name="importe"
+          />
+          <label for="floatingInput">Importe</label>
+        </div>
+        <div class="form-floating">
+          <select name="tipo" class="form-control">
+            <option value="Ingreso">Ingreso</option>
+            <option value="Gasto">Gasto</option>
+          </select>
+          <label for="floatingPassword">Tipo</label>
+        </div>
+        <div class="form-floating">
+          <textarea name="detalle" class="form-control"></textarea>
+          <label for="floatingPassword">Detalles</label>
+        </div>
+        <br />
+        <button id="btn" class="btn btn-lg btn-success" type="submit">
+          Ingresar Datos
+        </button>
+        <br />
+        <br />
+      </form>
+      <!--Form-Put datos-->
+      <form id="form_actualizar">
+        <h1 class="h4 mb-3 fw-normal">Actualizar Ingresos y Gastos</h1>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control identificador"
+            id="_id"
+            placeholder="Ingrese el ID a modificar"
+            name="_id"
+          />
+          <label for="floatingInput">ID</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control name"
+            placeholder="Ingrese su nombre"
+            name="nombre"
+          />
+          <label for="floatingInput">Nombre</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control date"
+            placeholder="Ingrese la fecha"
+            name="fecha"
+          />
+          <label for="floatingInput">Fecha</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="number"
+            class="form-control amount"
+            placeholder="Igrese la cifra en pesos"
+            name="importe"
+          />
+          <label for="floatingInput">Importe</label>
+        </div>
+        <div class="form-floating">
+          <select name="tipo" class="form-control type">
+            <option value="Ingreso">Ingreso</option>
+            <option value="Gasto">Gasto</option>
+          </select>
+          <label for="floatingPassword">Tipo</label>
+        </div>
+        <div class="form-floating">
+          <textarea name="detalle" class="form-control details"></textarea>
+          <label for="floatingPassword">Detalles</label>
+        </div>
+        <br />
+        <button id="btn_actualizar" class="btn btn-lg btn-success">
+          Actualizar Datos
+        </button>
+        <br />
+        <br />
+      </form>
+      <!--Tabla de datos-->
+      <h1 class="h4 mb-3 fw-normal">Tabla de datos ingresados</h1>
+      <table id="tabla" class="table table-bordered">
+        <thead>
+          <tr class="table-warning">
+            <th>#</th>
+            <br />
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Importe</th>
+            <th>Tipo</th>
+            <th>Detalle</th>
+            <th>  </th>
+          </tr>
+        </thead>
+      </table>
+      <h2 class="btn btn-success">Total $<label id="total"></label></h2>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
