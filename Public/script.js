@@ -1,9 +1,15 @@
 $(document).ready(function () {
-  //Table Insert
-  var rta = 0;
+  let rta = 0;
+
+  $(function () {
+    $(".update").hide();
+    $(".alert").hide();
+  });
+
+  //Table insert
   $("#btn").click(function (e) {
     e.preventDefault();
-    var dato_form = $("#miFormulario").serialize();
+    const dato_form = $("#miFormulario").serialize();
     $.ajax({
       url: "/usuario",
       type: "POST",
@@ -41,12 +47,14 @@ $(document).ready(function () {
             "</span></td>"
         );
         $("#tabla").append("<td >" + respuesta.detalle + "</td>");
-        $("#tabla").append("<td ><label class='btn btn-danger badge btn-borrar '> X </label></td>");
         $("#tabla").append("</tr>");
         $("#total").text(rta);
         console.log(rta);
-        //Modificar
+
+        //Modificate
         $(".modificar").click(function () {
+          $(".update").show();
+          $(".delete").hide();
           $(".identificador").val(respuesta._id);
           $(".name").val(respuesta.nombre);
           $(".date").val(respuesta.fecha);
@@ -58,7 +66,11 @@ $(document).ready(function () {
         //Delete
         $(".borrar").click(function (e) {
           e.preventDefault();
-          var dato_eliminar = $(this).attr("id");
+          const dato_eliminar = $(this).attr("id");
+          setTimeout( ()=>{
+            $(".delete").show();
+          },1000)
+          $(".change").hide();
           $.ajax({
             url: "/usuario/" + dato_eliminar,
             type: "delete",
@@ -70,11 +82,16 @@ $(document).ready(function () {
       },
     });
   });
+
   //Actulizar
   $("#btn_actualizar").click(function (e) {
     e.preventDefault();
-    var datos_modificar = $("#form_actualizar").serialize();
-    var param_id = $("#_id").val();
+    const datos_modificar = $("#form_actualizar").serialize();
+    const param_id = $("#_id").val();
+    setTimeout( ()=>{
+      $(".change").show();
+    },1000)
+    $(".delete").hide()
     $.ajax({
       url: "/usuario/" + param_id,
       type: "PUT",
@@ -84,4 +101,7 @@ $(document).ready(function () {
       },
     });
   });
+
+
+
 });

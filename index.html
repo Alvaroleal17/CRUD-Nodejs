@@ -13,115 +13,124 @@
     />
   </head>
   <body>
-    <main class="formulario form-signin w-100 m-auto">
-      <!--Form-Create datos-->
-      <form id="miFormulario">
-        <h1 class="h4 mb-3 fw-normal">Registrar Ingresos y Gastos</h1>
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Ingrese su nombre"
-            name="nombre"
-          />
-          <label for="floatingInput">Nombre</label>
+    <main class="formulario form-signin container">
+      <div class="container">
+        <div class=" data_register">
+          <form class="mt-4" id="miFormulario">
+            <h1 class="h4 text-center mb-3">Registrar Ingresos y Gastos</h1>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Ingrese su nombre"
+                name="nombre"
+              />
+              <label for="floatingInput">Nombre</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Ingrese la fecha"
+                name="fecha"
+              />
+              <label for="floatingInput">Fecha</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Igrese la cifra en pesos"
+                name="importe"
+              />
+              <label for="floatingInput">Importe</label>
+            </div>
+            <div class="form-floating">
+              <select name="tipo" class="form-control">
+                <option value="Ingreso">Ingreso</option>
+                <option value="Gasto">Gasto</option>
+              </select>
+              <label for="floatingPassword">Tipo</label>
+            </div>
+            <div class="form-floating">
+              <textarea name="detalle" class="form-control"></textarea>
+              <label for="floatingPassword">Detalles</label>
+            </div>
+            <button id="btn" class="btn btn-lg btn-success mt-4 w-100" type="submit">
+              Ingresar Datos
+            </button>
+            <br />
+            <br />
+          </form>
         </div>
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Ingrese la fecha"
-            name="fecha"
-          />
-          <label for="floatingInput">Fecha</label>
+  
+        <div class="update">
+          <form id="form_actualizar update_data">
+            <h1 class="h4 mt-4 mb-3 text-center">Actualizar Ingresos y Gastos</h1>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control identificador"
+                id="_id"
+                placeholder="Ingrese el ID a modificar"
+                name="_id"
+              />
+              <label for="floatingInput">ID</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control name"
+                placeholder="Ingrese su nombre"
+                name="nombre"
+              />
+              <label for="floatingInput">Nombre</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control date"
+                placeholder="Ingrese la fecha"
+                name="fecha"
+              />
+              <label for="floatingInput">Fecha</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control amount"
+                placeholder="Igrese la cifra en pesos"
+                name="importe"
+              />
+              <label for="floatingInput">Importe</label>
+            </div>
+            <div class="form-floating">
+              <select name="tipo" class="form-control type">
+                <option value="Ingreso">Ingreso</option>
+                <option value="Gasto">Gasto</option>
+              </select>
+              <label for="floatingPassword">Tipo</label>
+            </div>
+            <div class="form-floating">
+              <textarea name="detalle" class="form-control details"></textarea>
+              <label for="floatingPassword">Detalles</label>
+            </div>
+            <button id="btn_actualizar" class="btn btn-warning mt-4 w-100 ">
+              Actualizar datos
+            </button>
+          </form>
         </div>
-        <div class="form-floating">
-          <input
-            type="number"
-            class="form-control"
-            placeholder="Igrese la cifra en pesos"
-            name="importe"
-          />
-          <label for="floatingInput">Importe</label>
-        </div>
-        <div class="form-floating">
-          <select name="tipo" class="form-control">
-            <option value="Ingreso">Ingreso</option>
-            <option value="Gasto">Gasto</option>
-          </select>
-          <label for="floatingPassword">Tipo</label>
-        </div>
-        <div class="form-floating">
-          <textarea name="detalle" class="form-control"></textarea>
-          <label for="floatingPassword">Detalles</label>
-        </div>
-        <br />
-        <button id="btn" class="btn btn-lg btn-success" type="submit">
-          Ingresar Datos
-        </button>
-        <br />
-        <br />
-      </form>
-      <!--Form-Put datos-->
-      <form id="form_actualizar">
-        <h1 class="h4 mb-3 fw-normal">Actualizar Ingresos y Gastos</h1>
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control identificador"
-            id="_id"
-            placeholder="Ingrese el ID a modificar"
-            name="_id"
-          />
-          <label for="floatingInput">ID</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control name"
-            placeholder="Ingrese su nombre"
-            name="nombre"
-          />
-          <label for="floatingInput">Nombre</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="text"
-            class="form-control date"
-            placeholder="Ingrese la fecha"
-            name="fecha"
-          />
-          <label for="floatingInput">Fecha</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="number"
-            class="form-control amount"
-            placeholder="Igrese la cifra en pesos"
-            name="importe"
-          />
-          <label for="floatingInput">Importe</label>
-        </div>
-        <div class="form-floating">
-          <select name="tipo" class="form-control type">
-            <option value="Ingreso">Ingreso</option>
-            <option value="Gasto">Gasto</option>
-          </select>
-          <label for="floatingPassword">Tipo</label>
-        </div>
-        <div class="form-floating">
-          <textarea name="detalle" class="form-control details"></textarea>
-          <label for="floatingPassword">Detalles</label>
-        </div>
-        <br />
-        <button id="btn_actualizar" class="btn btn-lg btn-success">
-          Actualizar Datos
-        </button>
-        <br />
-        <br />
-      </form>
+      </div>
+      <!--Message alert-->
+      <div class="mt-4 change alert alert-success" role="alert">
+        <h5 class="h5 text-center">Documento modificado en la base de datos</h5>
+      </div>
+      <div class="mt-4 delete alert alert-danger" role="alert">
+        <h5 class="h5 text-center">Documento eliminado de la base de datos</h5>
+      </div>
+
       <!--Tabla de datos-->
-      <h1 class="h4 mb-3 fw-normal">Tabla de datos ingresados</h1>
+      <h1 class="h4 mb-3 mt-4  text-center">Tabla de datos ingresados</h1>
       <table id="tabla" class="table table-bordered">
         <thead>
           <tr class="table-warning">
@@ -133,11 +142,13 @@
             <th>Importe</th>
             <th>Tipo</th>
             <th>Detalle</th>
-            <th>  </th>
           </tr>
         </thead>
       </table>
-      <h2 class="btn btn-success">Total $<label id="total"></label></h2>
+      <div class="container">
+        <h2 class="btn btn-success mt-2">Total $<label id="total"></label></h2>
+      </div>
+
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>

@@ -1,7 +1,8 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 //Configurar el bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -9,9 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 //Mongoose
 mongoose
-  .connect(
-    "mongodb+srv://alvaro_0817:A65708589l@cluster0.cbh2tqk.mongodb.net/BD_ingresos_gastos?retryWrites=true&w=majority"
-  )
+  .connect(process.env.STRING_CONEXION)
   .then(function (db) {
     console.log("Conectado a la base de datos");
   })
@@ -19,39 +18,38 @@ mongoose
     console.log(err);
   });
 //Modelo de datos
-var Pers = require("./models/usuarios");
-const personas = require("./models/usuarios");
-//Rutas -Obtener
-app.get("/inicio", async function (req, res) {
-  var documentos = await Pers.find();
+const Pers = require("./models/usuarios");
+//Rutas
+//Get
+app.get("/", async function (req, res) {
+  await Pers.find();
   res.sendFile(__dirname + "/index.html");
 });
-// Create
+
+//Create
 app.post("/usuario", async function (req, res) {
-  var datos_ajax = req.body;
-  var p = new Pers(datos_ajax);
+  const datos_ajax = req.body;
+  const p = new Pers(datos_ajax);
   await p.save();
-  res.send(p);
+  res.status(200).send(p);
 });
-//PUT
+
+//Put
 app.put("/usuario/:id", async function (req, res) {
-  var parametro = req.params.id;
-  console.log("ID modificado: " + parametro);
-  var p = await Pers.updateOne({ _id: parametro }, req.body);
-  res.send("Modificado correctamente");
+  const parametro = req.params.id;
+  await Pers.updateOne({ _id: parametro }, req.body);
+  res.status(200).send("Modificado correctamente");
 });
+
 //Delete
 app.delete("/usuario/:id", async function (req, res) {
-  var parametro = req.params.id;
-  console.log("Documento eliminado: " + parametro);
-
-  var p = await Pers.findById(parametro);
+  const parametro = req.params.id;
+  const p = await Pers.findById(parametro);
   await p.remove();
-  res.send("Eliminado de la base de datos");
+  res.status(200).send("Eliminado de la base de datos");
 });
 
-
 //Listen
-app.listen(4000, function () {
+app.listen(3000, function () {
   console.log("Servidor iniciado");
 });
